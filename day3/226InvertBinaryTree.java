@@ -1,4 +1,4 @@
-class Solution {
+d class Solution {
     public TreeNode invertTree(TreeNode root) {
         if(root == null){
             return root;

@@ -60,3 +60,35 @@ to
 	        return root;
 	    }
 	}
+	
+	
+##Add Digits
+
+Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+
+For example:
+
+Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+
+Follow up:
+Could you do it without any loop/recursion in O(1) runtime?
+
+###solution one 
+没有想到不用循环的方法：先贴上自己做的
+
+	class Solution {
+	    public int addDigits(int num) {
+	        while(num >9){
+	            num = num%10 + num/10;
+	        }
+	        return num;
+	    }
+	}
+	
+这类运算非常熟悉，根据数学特性可以得到时间复杂度为O(1)的解法。
+
+	class Solution {
+	    public int addDigits(int num) {
+	        return 1 + (num - 1) % 9;
+	    }
+	}
