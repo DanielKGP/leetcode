@@ -46,7 +46,11 @@ Could you solve it with constant space complexity? (Note: The output array does 
 
 计算数组当前坐标外的乘积，并且时间复杂度为O(n)
 
-可将计算分成两部分：先计算坐标左边的乘积和，并存入res[]数组中，每个坐标数都有对应的左边和，再计算右边的乘积和，最后相乘，便可获得想要的值。
+可将计算分成两部分：
+
+1. 先计算坐标左边的乘积和，并存入res[]数组中，每个坐标数都有对应的左边和，
+
+2. 再计算右边的乘积和，最后相乘，便可获得想要的值。
 
 
 	class Solution {
