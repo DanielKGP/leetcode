@@ -42,7 +42,7 @@ Could you solve it with constant space complexity? (Note: The output array does 
 	}
 	
 	
-## solution two
+### solution two
 
 计算数组当前坐标外的乘积，并且时间复杂度为O(n)
 
@@ -53,19 +53,24 @@ Could you solve it with constant space complexity? (Note: The output array does 
 2. 再计算右边的乘积和，最后相乘，便可获得想要的值。
 
 
-	class Solution {
-	     public int[] productExceptSelf(int[] nums) {
-	        int n = nums.length;
-	        int[] res = new int[n];
-	        res[0] = 1;
-	        for (int i = 1; i < n; i++) {
-	            res[i] = res[i - 1] * nums[i - 1];
-	        }
-	        int right = 1;
-	        for (int i = n - 1; i >= 0; i--) {
-	            res[i] *= right;
-	            right *= nums[i];
-	        }
-	        return res;
-	    }
-}
+
+		class Solution {
+		     public int[] productExceptSelf(int[] nums) {
+		        int n = nums.length;
+		        int[] res = new int[n];
+		        res[0] = 1;
+		        for (int i = 1; i < n; i++) {
+		            res[i] = res[i - 1] * nums[i - 1];
+		        }
+		        int right = 1;
+		        for (int i = n - 1; i >= 0; i--) {
+		            res[i] *= right;
+		            right *= nums[i];
+		        }
+		        return res;
+		    }
+		}
+		
+
+
+## Binary Tree Inorder Traversal
