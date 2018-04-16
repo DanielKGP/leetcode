@@ -32,29 +32,31 @@ What if the BST is modified (insert/delete operations) often and you need to fin
 	
 	
 ### solution two
-更为优雅的中序遍历应该是这样：
+更为合适的中序遍历应该是这样：
 
-	private static int number = 0;
-	private static int count = 0;
+	class Solution {
+	    private static int number = 0;
+	    private static int count = 0;
 	
-	public int kthSmallest(TreeNode root, int k) {
-	    count = k;
-	    helper(root);
-	    return number;
-	}
-	
-	public void helper(TreeNode n) {
-	    if (n.left != null) helper(n.left);
-	    count--;
-	    if (count == 0) {
-	        number = n.val;
-	        return;
+	    public int kthSmallest(TreeNode root, int k) {
+	        count = k;
+	        helper(root);
+	        return number;
 	    }
-	    if (n.right != null) helper(n.right);
+	
+	    public void helper(TreeNode n) {
+	        if (n.left != null) helper(n.left);
+	        count--;
+	        if (count == 0) {
+	            number = n.val;
+	            return;
+	        }
+	        if (n.right != null) helper(n.right);
+	    }
 	}
 因为二叉搜索树的特点是：
 
 * 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 
 * 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值。 
 
-所以在中序遍历时，就可以利用这一特点，遍历左子树时，count减1，直到count为0时，该节点的val值就是我们想要的了。
+所以在中序遍历时，就可以利用这一特点，遍历左子树时，count减1，直到count为0时，该节点的val值就是我们想要的了。这样就省去了使用list的空间.
