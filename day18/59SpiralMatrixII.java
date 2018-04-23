@@ -1,29 +1,40 @@
+import java.util.ArrayList;
+
 class Solution {
-    public int[][] generateMatrix(int n) {
-        int[][] ans =new int[n][n];
+    public ArrayList<Integer> spiralOrder(int[][] matrix) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        if(matrix.length==0) return list;
+
         int left=0;
         int top=0;
-        int right = n-1;
-        int down = n-1;
-        int count =1;
-        while(left<=right){
-            for(int i=left; i<=right; i++){
-                ans[top][i] = count++;
+        int right=matrix[0].length-1;
+        int down=matrix.length-1;
+
+        while(left<=right && top<= down){
+            for(int i=left; i<= right; i++){
+                list.add(matrix[top][i]);
             }
             top++;
-            for(int j=top; j<=down; j++){
-                ans[j][right] = count++;
+            for(int j=top;j<= down;j++){
+                list.add(matrix[j][right]);
             }
             right--;
-            for(int i=right; i>= left; i--){
-                ans[down][i] = count++;
+            for(int i=right; i>=left;i--){
+                list.add(matrix[down][i]);
             }
             down--;
             for(int j=down; j>=top; j--){
-                ans[j][left] = count++;
+                list.add(matrix[j][left]);
             }
             left++;
         }
-        return ans;
+        return list;
+    }
+
+    public static void main(String[] args) {
+      Solution t = new Solution();
+      int[][] temp = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+      System.out.println(t.spiralOrder(temp));
+
     }
 }
