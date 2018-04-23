@@ -34,6 +34,7 @@ class Solution {
     public static void main(String[] args) {
       Solution t = new Solution();
       int[][] temp = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+      //deffer from the answer in the LeetCode
       System.out.println(t.spiralOrder(temp));
 
     }
